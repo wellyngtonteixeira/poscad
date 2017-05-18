@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_POSCAD_DISCIPLINA_VIEW_DEFAULT_TITLE">
+		<message>COM_POSCAD_DISCIPLINA_VIEW_DEFAULT_DESC</message>
+	</layout>
+	<fields name="request"
+				addfieldpath="/administrator/components/com_poscad/models/fields">
+		<fieldset name="request">
+			<field
+					name="id"
+					type="disciplina"
+					label="COM_POSCAD_DISCIPLINA_FIELD_NOME_LABEL"
+					description="COM_POSCAD_DISCIPLINA_FIELD_NOME_DESC" />
+		</fieldset>
+	</fields>
+</metadata>

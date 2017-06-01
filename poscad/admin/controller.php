@@ -25,6 +25,6 @@ class PosCadController extends JControllerLegacy
 	 * @var string
 	 * @since 12.2
 	 */
-	protected $default_view = 'cursos';
+	protected $default_view = 'matrizs';
 }
 ?>

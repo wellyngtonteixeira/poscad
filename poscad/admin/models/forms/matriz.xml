@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="request"
+			addfieldpath="/administrator/components/com_poscad/models/fields"
+	>
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="curso"
+				type="curso"
+				label="COM_POSCAD_MATRIZES_CURSO"
+				description="COM_POSCAD_CURSO_FIELD_NOME_DESC" />
+		<field
+				name="inicioUso"
+				type="calendar"
+				label="COM_POSCAD_MATRIZES_INICIO"
+				description="COM_POSCAD_MATRIZES_FIELD_INICIO_DESC" 
+				class="input-small" required="true" filter="user_utc" format="%d-%m-%Y"
+				showtime="false" todaybutton="false" filltable="false" translateformat="true" />
+		<field
+				name="terminoUso"
+				type="calendar"
+				label="COM_POSCAD_MATRIZES_TERMINO"
+				description="COM_POSCAD_MATRIZES_FIELD_TERMINO_DESC" 
+				class="input-small" filter="user_utc" format="%d-%m-%Y"
+				showtime="false" todaybutton="false" filltable="false" translateformat="true"/>
+		<field
+				name="disciplinas"
+				type="disciplina"
+				label="COM_POSCAD_MATRIZES_DISCIPLINAS"
+				description="COM_POSCAD_MATRIZES_FIELD_DISCIPLINAS_DESC" multiple="true"/>		
+
+		</fieldset>
+</form>

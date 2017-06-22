@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset name="request"
+	<fieldset name="request_dm"
 			addfieldpath="/administrator/components/com_poscad/models/fields"
 	>
 		<field
-				name="id"
+				name="idm"
 				type="hidden"
 				/>
 		<field
 				name="matriz"
-				type="number"
+				type="hidden"
 				label="COM_POSCAD_DISCIPLINAMATRIZ_MATRIZ"
 				description="COM_POSCAD_DISCIPLINAMATRIZ_FIELD_MATRIZ_DESC" />
 		<field
 				name="disciplina"
-				type="number"
+				type="disciplina"
 				label="COM_POSCAD_DISCIPLINAMATRIZ_DISCIPLINA"
 				description="COM_POSCAD_DISCIPLINAMATRIZ_FIELD_DISCIPLINA_DESC" />		
 

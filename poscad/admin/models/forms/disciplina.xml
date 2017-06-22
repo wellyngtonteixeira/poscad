@@ -14,5 +14,12 @@
 				class="inputbox"
 				default=""
 				/>
+		<field
+				name="matrizes"
+				type="matriz"
+				label="COM_POSCAD_DISCIPLINA_MATRIZ_LABEL"
+				description="COM_POSCAD_DISCIPLINA_MATRIZ_DESC"
+				multiple="true"
+				/>
 	</fieldset>
 </form>

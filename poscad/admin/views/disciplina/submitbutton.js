@@ -5,6 +5,10 @@ Joomla.submitbutton = function(task)
 		console.log("ARROZ");
 		return false;
 	}
+	else if(task == "matriz.add"){
+		
+
+	}
 	else
 	{
 

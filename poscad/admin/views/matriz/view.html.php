@@ -100,9 +100,6 @@ class PosCadViewMatriz extends JViewLegacy
 		$document = JFactory::getDocument();
 		$document->setTitle($isNew ? JText::_('COM_POSCAD_MATRIZ_CREATING') :
                 JText::_('COM_POSCAD_MATRIZ_EDITING'));
-		$document->addScript(JURI::root() . "/administrator/components/com_poscad"
-		                                  . "/views/matriz/submitbutton.js");
-		JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
 	}
 }
 ?>

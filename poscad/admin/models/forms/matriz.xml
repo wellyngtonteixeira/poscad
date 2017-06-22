@@ -25,12 +25,7 @@
 				label="COM_POSCAD_MATRIZES_TERMINO"
 				description="COM_POSCAD_MATRIZES_FIELD_TERMINO_DESC" 
 				class="input-small" filter="user_utc" format="%d-%m-%Y"
-				showtime="false" todaybutton="false" filltable="false" translateformat="true"/>
-		<field
-				name="disciplinas"
-				type="disciplina"
-				label="COM_POSCAD_MATRIZES_DISCIPLINAS"
-				description="COM_POSCAD_MATRIZES_FIELD_DISCIPLINAS_DESC" multiple="true"/>		
+				showtime="false" todaybutton="false" filltable="false" translateformat="true"/>	
 
 		</fieldset>
 </form>

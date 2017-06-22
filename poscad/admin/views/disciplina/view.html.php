@@ -46,6 +46,8 @@ class PosCadViewDisciplina extends JViewLegacy
 		}
  
  
+		//listando matrizes
+		//$this->listando();
 		// Set the toolbar
 		$this->addToolBar();
  
@@ -100,6 +102,11 @@ class PosCadViewDisciplina extends JViewLegacy
 		$document = JFactory::getDocument();
 		$document->setTitle($isNew ? JText::_('COM_POSCAD_DISCIPLINA_CREATING') :
                 JText::_('COM_POSCAD_DISCIPLINA_EDITING'));
+		$document->addScript(JURI::root() . "/administrator/components/com_poscad"
+		                                  . "/views/disciplina/submitbutton.js");
+		JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
 	}
+
+
 }
 ?>

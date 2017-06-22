@@ -33,5 +33,7 @@ class PosCadControllerDisciplinas extends JControllerAdmin
  
 		return $model;
 	}
+
+	
 }
 ?>

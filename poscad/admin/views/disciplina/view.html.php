@@ -23,6 +23,8 @@ class PosCadViewDisciplina extends JViewLegacy
 	 * @var         form
 	 */
 	protected $form = null;
+	public $item1 = null;
+	public $item2 = null;
  
 	/**
 	 * Display the Hello World view
@@ -33,9 +35,17 @@ class PosCadViewDisciplina extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
+		//Get modelos
+		  $this->setModel( $this->getModel( 'disciplina' ), true );
+//  sets second model & uses 'JModelLegacy,' contrary to documentation
+        $this->setModel(JModelLegacy::getInstance('disciplinaMatriz', 'posCadModel'));
+		$this->item1 = $this->get('Items','disciplina');
+		$this->item2 = $this->get( 'Items', 'disciplinaMatriz' );
+
 		// Get the Data
 		$this->form = $this->get('Form');
 		$this->item = $this->get('Item');
+
  
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))

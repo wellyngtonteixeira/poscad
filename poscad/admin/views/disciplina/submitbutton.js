@@ -2,20 +2,17 @@ Joomla.submitbutton = function(task)
 {
 	if (task == '')
 	{
-		console.log("ARROZ");
 		return false;
-	}
-	else if(task == "matriz.add"){
-		
-
 	}
 	else
 	{
-
-		console.log("CARNE = "+task);
-		Joomla.submitform(task);
-		task = "matriz.teste";
-		Joomla.submitform(task);
-		return true;
+		var action = task.split('.');
+		if (action[1] != 'cancel' && action[1] != 'close')
+		{
+			Joomla.submitform(task);
+			/*task = 'disciplina.salvaMatrizes';
+			Joomla.submitform(task);*/
+			return true;
+		}
 	}
 }

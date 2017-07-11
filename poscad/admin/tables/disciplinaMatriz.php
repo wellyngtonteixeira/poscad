@@ -23,6 +23,6 @@ class PosCadTableDisciplinaMatriz extends JTable
 	 */
 	function __construct(&$db)
 	{
-		parent::__construct('#__disciplina_matriz_curricular', 'id', $db);
+		parent::__construct('#__disciplina_matriz_curricular', 'matriz,disciplina', $db);
 	}
 }

@@ -15,10 +15,21 @@
 				default=""
 				/>
 		<field
+				name="carga"
+				type="number"
+				label="COM_POSCAD_DISCIPLINA_NOME_LABEL"
+				description="COM_POSCAD_DISCIPLINA_NOME_DESC"
+				size="10"
+				class="inputbox"
+				default=""
+				/>
+		<field
 				name="matrizes"
-				type="matriz"
+				type="disciplinaMatriz"
 				label="COM_POSCAD_DISCIPLINA_MATRIZ_LABEL"
 				description="COM_POSCAD_DISCIPLINA_MATRIZ_DESC"
+				class="checkboxes"
+				required="true"
 				multiple="true"
 				/>
 	</fieldset>

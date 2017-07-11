@@ -62,6 +62,19 @@ class PosCadModelDisciplina extends JModelAdmin
  
 		return $form;
 	}
+
+	/*public function getItem() {
+    $item = parent::getItem();
+
+    $item->second_table = $this->getSecondTable($item->second_table_foreign_key);
+    return $item;
+}
+
+private function getSecondTable($id) {
+    $model = JModelLegacy::getInstance('DisciplinaMatriz','PosCadModel');
+    $table = $model->getTable('DisciplinaMatriz', 'PosCadTable');
+    return $table->load($id);
+}*/
  
 	/**
 	 * Method to get the data that should be injected in the form.
@@ -85,5 +98,7 @@ class PosCadModelDisciplina extends JModelAdmin
  
 		return $data;
 	}
+
+
 }
 ?>

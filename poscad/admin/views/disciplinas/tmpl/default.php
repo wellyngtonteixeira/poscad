@@ -36,6 +36,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 			<th width="90%">
 				<?php echo JHtml::_('grid.sort', 'COM_POSCAD_DISCIPLINAS_NOME', 'nome', $listDirn, $listOrder); ?>
 			</th>
+			<th width="90%">
+				<?php echo JHtml::_('grid.sort', 'COM_POSCAD_DISCIPLINAS_CARGA', 'carga', $listDirn, $listOrder); ?>
+			</th>
 			<th width="2%">
 				<?php echo JHtml::_('grid.sort', 'COM_POSCAD_ID', 'id', $listDirn, $listOrder); ?>
 			</th>
@@ -65,6 +68,9 @@ $listDirn      = $this->escape($this->filter_order_Dir);
 							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_POSCAD_EDIT_DISCIPLINA'); ?>">
 							<?php echo $row->nome; ?>
 							</a>
+						</td>
+						<td align="center">
+							<?php echo $row->carga; ?>
 						</td>
 						<td align="center">
 							<?php echo $row->id; ?>

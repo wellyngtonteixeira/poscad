@@ -25,4 +25,12 @@ class PosCadTableDisciplina extends JTable
 	{
 		parent::__construct('#__disciplina', 'id', $db);
 	}
+
+	/*private function saveSecondTableData($data){
+		$model = JModelLegacy::getInstance('DisciplinaMatriz','PosCadModel');
+    	$table = $model->getTable('DisciplinaMatriz', 'PosCadTable');
+    	$table->bind($data);
+    	$table->store();
+    	parent::save($data);
+	}*/
 }

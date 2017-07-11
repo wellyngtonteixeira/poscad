@@ -4,17 +4,13 @@
 			addfieldpath="/administrator/components/com_poscad/models/fields"
 	>
 		<field
-				name="idm"
-				type="hidden"
-				/>
-		<field
 				name="matriz"
-				type="hidden"
+				type="number"
 				label="COM_POSCAD_DISCIPLINAMATRIZ_MATRIZ"
 				description="COM_POSCAD_DISCIPLINAMATRIZ_FIELD_MATRIZ_DESC" />
 		<field
 				name="disciplina"
-				type="disciplina"
+				type="number"
 				label="COM_POSCAD_DISCIPLINAMATRIZ_DISCIPLINA"
 				description="COM_POSCAD_DISCIPLINAMATRIZ_FIELD_DISCIPLINA_DESC" />		
 

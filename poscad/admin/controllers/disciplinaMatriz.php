@@ -16,23 +16,24 @@ defined('_JEXEC') or die('Restricted access');
  * @subpackage  com_helloworld
  * @since       0.0.9
  */
-class PosCadControllerDisciplina extends JControllerForm
+class PosCadControllerDisciplinaMatriz extends JControllerForm
 {
 
-	
-	protected function postSaveHook(JModelLegacy &$model, $validData = array()){
-		$item = $model->getItem();
-		$id = ($item->get('id') !=null ? $item->get('id') : 0);
+	/*public function save($key = null, $urlVar = null){
 		$entradas = JFactory::getApplication()->input;
 		$form = new JInput($entradas->get('jform', '', 'array'));
 		$matrizes = $form->get('matrizes', '', 'array');
-		$modelo = JModelLegacy::getInstance('disciplinaMatriz', 'posCadModel');
-		if($matrizes != null && $id !=0){
+		$disciplina = $entradas->get->getInt('id',0);
+		$model = JModelLegacy::getInstance('disciplinaMatriz', 'posCadModel');
+		$table = $model->getTable('disciplinaMatriz', 'posCadTable');
+		$url = $table->getKeyName();
+		if($matrizes != null && $disciplina !=0){
 			foreach($matrizes as $m){
 				$dms = array();
 				$dms['matriz'] = (int)$m;
-				$dms['disciplina'] = $id;
-				$modelo->save($dms);
+				$dms['disciplina'] = $disciplina;
+				//carrega modelo
+				parent::save($key = $dms, $urlVar = $url);
 				//carrega tabela
 				//salva objeto
 			}
@@ -41,7 +42,7 @@ class PosCadControllerDisciplina extends JControllerForm
 			print_r($entradas);
 			print_r("nao carregou matrizes ou id == 0");
 		}
-		//return true;
-	}
+		return true;
+	}*/
 }
 ?>

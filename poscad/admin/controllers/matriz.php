@@ -19,21 +19,5 @@ defined('_JEXEC') or die('Restricted access');
 class PosCadControllerMatriz extends JControllerForm
 {
 
-	function teste(){
-		$entradas = JFactory::getApplication()->input;
-		$form = new JInput($entradas->get('jform', '', 'array'));
-		$disciplinas = $form->get('disciplinas', '', 'array');
-		if($disciplinas != null){
-			print_r("DISCIPLINAS: \n");
-			var_dump($disciplinas);
-			print_r("DADOS: \n\n");
-			print_r($entradas);
-		}
-		else{
-			print_r($entradas);
-			print_r("nao carregou disciplinas");
-		}
-		return true;
-	}
 }
 ?>

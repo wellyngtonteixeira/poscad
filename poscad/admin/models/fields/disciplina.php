@@ -35,7 +35,7 @@ class JFormFieldDisciplina extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,nome');
+		$query->select('id,nome,carga');
 		$query->from('#__disciplina');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();

@@ -9,7 +9,7 @@
  
 // No direct access
 defined('_JEXEC') or die('Restricted access');
- 
+JHtml::_('behavior.formvalidator'); 
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_poscad&layout=edit&id=' . (int) $this->item->id); ?>"
     method="post" name="adminForm" id="adminForm">

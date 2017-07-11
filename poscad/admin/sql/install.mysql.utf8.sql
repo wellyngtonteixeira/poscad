@@ -48,13 +48,11 @@ CREATE TABLE `#__matriz_curricular` (
 DROP TABLE IF EXISTS `#__disciplina_matriz_curricular`;
 
 CREATE TABLE `#__disciplina_matriz_curricular` (
-	`id`       INT(11)     NOT NULL AUTO_INCREMENT,
 	`matriz` INT(11)     NOT NULL,
 	`disciplina` INT(11)     NOT NULL,
-	PRIMARY KEY (`id`),
 	FOREIGN KEY (`matriz`) REFERENCES `#__matriz_curricular`(`id`),
-	FOREIGN KEY (`disciplina`) REFERENCES `#__disciplina`(`id`)
+	FOREIGN KEY (`disciplina`) REFERENCES `#__disciplina`(`id`),
+	PRIMARY KEY (`matriz`, `disciplina`)
 )
 	ENGINE =MyISAM
-	AUTO_INCREMENT =0
 	DEFAULT CHARSET =utf8;

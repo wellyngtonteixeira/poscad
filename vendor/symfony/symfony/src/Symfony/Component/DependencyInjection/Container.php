@@ -111,7 +111,7 @@ class Container implements ResettableContainerInterface
     /**
      * Returns true if the container parameter bag are frozen.
      *
-     * Deprecated since 3.3, to be removed in 4.0.
+     * @deprecated since version 3.3, to be removed in 4.0.
      *
      * @return bool true if the container parameter bag are frozen, false otherwise
      */
@@ -190,6 +190,7 @@ class Container implements ResettableContainerInterface
             unset($this->aliases[$id]);
         }
 
+        $wasSet = isset($this->services[$id]);
         $this->services[$id] = $service;
 
         if (null === $service) {
@@ -198,16 +199,16 @@ class Container implements ResettableContainerInterface
 
         if (isset($this->privates[$id])) {
             if (null === $service) {
-                @trigger_error(sprintf('Unsetting the "%s" private service is deprecated since Symfony 3.2 and won\'t be supported anymore in Symfony 4.0.', $id), E_USER_DEPRECATED);
+                @trigger_error(sprintf('The "%s" service is private, unsetting it is deprecated since Symfony 3.2 and will fail in 4.0.', $id), E_USER_DEPRECATED);
                 unset($this->privates[$id]);
             } else {
-                @trigger_error(sprintf('Setting the "%s" private service is deprecated since Symfony 3.2 and won\'t be supported anymore in Symfony 4.0.', $id), E_USER_DEPRECATED);
+                @trigger_error(sprintf('The "%s" service is private, replacing it is deprecated since Symfony 3.2 and will fail in 4.0.', $id), E_USER_DEPRECATED);
             }
-        } elseif (isset($this->methodMap[$id])) {
+        } elseif ($wasSet && isset($this->methodMap[$id])) {
             if (null === $service) {
-                @trigger_error(sprintf('Unsetting the "%s" pre-defined service is deprecated since Symfony 3.3 and won\'t be supported anymore in Symfony 4.0.', $id), E_USER_DEPRECATED);
+                @trigger_error(sprintf('The "%s" service is already initialized, unsetting it is deprecated since Symfony 3.3 and will fail in 4.0.', $id), E_USER_DEPRECATED);
             } else {
-                @trigger_error(sprintf('Setting the "%s" pre-defined service is deprecated since Symfony 3.3 and won\'t be supported anymore in Symfony 4.0.', $id), E_USER_DEPRECATED);
+                @trigger_error(sprintf('The "%s" service is already initialized, replacing it is deprecated since Symfony 3.3 and will fail in 4.0.', $id), E_USER_DEPRECATED);
             }
         }
     }
@@ -223,7 +224,7 @@ class Container implements ResettableContainerInterface
     {
         for ($i = 2;;) {
             if (isset($this->privates[$id])) {
-                @trigger_error(sprintf('Checking for the existence of the "%s" private service is deprecated since Symfony 3.2 and won\'t be supported anymore in Symfony 4.0.', $id), E_USER_DEPRECATED);
+                @trigger_error(sprintf('The "%s" service is private, checking for its existence is deprecated since Symfony 3.2 and will fail in 4.0.', $id), E_USER_DEPRECATED);
             }
             if (isset($this->aliases[$id])) {
                 $id = $this->aliases[$id];
@@ -281,7 +282,7 @@ class Container implements ResettableContainerInterface
         // calling $this->normalizeId($id) unless necessary.
         for ($i = 2;;) {
             if (isset($this->privates[$id])) {
-                @trigger_error(sprintf('Requesting the "%s" private service is deprecated since Symfony 3.2 and won\'t be supported anymore in Symfony 4.0.', $id), E_USER_DEPRECATED);
+                @trigger_error(sprintf('The "%s" service is private, getting it from the container is deprecated since Symfony 3.2 and will fail in 4.0. You should either make the service public, or stop getting services directly from the container and use dependency injection instead.', $id), E_USER_DEPRECATED);
             }
             if (isset($this->aliases[$id])) {
                 $id = $this->aliases[$id];
@@ -427,9 +428,9 @@ class Container implements ResettableContainerInterface
     /**
      * Fetches a variable from the environment.
      *
-     * @param string The name of the environment variable
+     * @param string $name The name of the environment variable
      *
-     * @return scalar The value to use for the provided environment variable name
+     * @return mixed The value to use for the provided environment variable name
      *
      * @throws EnvNotFoundException When the environment variable is not found and has no default value
      */
@@ -438,10 +439,13 @@ class Container implements ResettableContainerInterface
         if (isset($this->envCache[$name]) || array_key_exists($name, $this->envCache)) {
             return $this->envCache[$name];
         }
+        if (isset($_SERVER[$name]) && 0 !== strpos($name, 'HTTP_')) {
+            return $this->envCache[$name] = $_SERVER[$name];
+        }
         if (isset($_ENV[$name])) {
             return $this->envCache[$name] = $_ENV[$name];
         }
-        if (false !== $env = getenv($name)) {
+        if (false !== ($env = getenv($name)) && null !== $env) { // null is a possible value because of thread safety issues
             return $this->envCache[$name] = $env;
         }
         if (!$this->hasParameter("env($name)")) {

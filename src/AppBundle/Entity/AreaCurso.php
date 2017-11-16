@@ -32,12 +32,13 @@ class AreaCurso
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
     }
-                                public function getNome()
+
+    public function getNomeArea()
     {
         return $this->nomeArea;
     }
 
-    public function setNome($nomeArea)
+    public function setNomeArea($nomeArea)
     {
         $this->nomeArea = $nomeArea;
     }
@@ -48,6 +49,12 @@ class AreaCurso
     }
 
     public function __toString(){
-        return (string)$this->id;
+        return $this->nomeArea;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
 }

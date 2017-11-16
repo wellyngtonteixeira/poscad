@@ -38,7 +38,7 @@ class Curso
     protected $areaCurso;
 
     /**
-     * @OneToMany(targetEntity="Coordenacao", mappedBy="curso")
+     * @ORM\OneToMany(targetEntity="Coordenacao", mappedBy="curso")
      */
     protected $coordenacoes;
 
@@ -67,62 +67,62 @@ class Curso
         // $this->salt = md5(uniqid('', true));
     }
 
-    public function getNome()
+    public function getNomeCurso()
     {
         return $this->nomeCurso;
     }
 
-    public function setNome($nomeCurso)
+    public function setNomeCurso($nomeCurso)
     {
         $this->nomeCurso = $nomeCurso;
     }
 
-    public function getCodigo()
+    public function getCodigoCurso()
     {
         return $this->codigoCurso;
     }
 
-    public function setCodigo($codigoCurso)
+    public function setCodigoCurso($codigoCurso)
     {
         $this->codigoCurso = $codigoCurso;
     }
 
-    public function getArea()
+    public function getAreaCurso()
     {
         return $this->areaCurso;
     }
 
-    public function setArea($areaCurso)
+    public function setAreaCurso($areaCurso)
     {
         $this->areaCurso = $areaCurso;
     }
 
-    public function getCoordenador()
+    public function getCoordenacoes()
     {
-        return $this->coordCurso;
+        return $this->coordenacoes;
     }
 
-    public function setCoordenador($coordCurso)
+    public function setCoordenacoes($coordenador)
     {
         $this->coordCurso = $coordCurso;
     }
 
-    public function getModalidade()
+    public function getModalidadeCurso()
     {
         return $this->modalidadeCurso;
     }
 
-    public function setModalidade($modalidadeCurso)
+    public function setModalidadeCurso($modalidadeCurso)
     {
         $this->modalidadeCurso = $modalidadeCurso;
     }
 
-    public function getTipo()
+    public function getTipoCurso()
     {
         return $this->tipoCurso;
     }
 
-    public function setTipo($tipoCurso)
+    public function setTipoCurso($tipoCurso)
     {
         $this->tipoCurso = $tipoCurso;
     }
@@ -132,12 +132,12 @@ class Curso
         return $this->id;
     }
 
-    public function setAtivo($isActive)
+    public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
     }
 
-    public function getAtivo()
+    public function getIsActive()
     {
         return $this->isActive;
     }

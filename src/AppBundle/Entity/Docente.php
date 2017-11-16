@@ -14,15 +14,20 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="docentes")
  */
-class Docente extends Usuario
+class Docente
 {
     /**
-     * @ORM\Column(type="integer", unique=TRUE)
+     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    protected $usuario;
+    /**
+     * @ORM\Column(type="integer")
      * @ORM\Id
      */
     protected $matricula;
     /**
-     * @OneToMany(targetEntity="Coordenacao", mappedBy="coordenador")
+     * @ORM\OneToMany(targetEntity="Coordenacao", mappedBy="coordenador")
      */
     protected $coordenacoes;
 
@@ -34,5 +39,15 @@ class Docente extends Usuario
     public function setMatricula($matricula)
     {
         $this->matricula = $matricula;
+    }
+
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
     }
 }

@@ -23,23 +23,34 @@ class Coordenacao
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
     /**
      * Many Features have One Product.
-     * @ManyToOne(targetEntity="Docente", inversedBy="coordenacoes")
-     * @JoinColumn(name="coordenador", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Docente", inversedBy="coordenacoes")
+     * @ORM\JoinColumn(name="coordenador", referencedColumnName="matricula")
      */
     protected $coordenador;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
     protected $atual;
+
     /**
      * Many Features have One Product.
-     * @ManyToOne(targetEntity="Curso", inversedBy="coordenacoes")
-     * @JoinColumn(name="curso", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Curso", inversedBy="coordenacoes")
+     * @ORM\JoinColumn(name="curso", referencedColumnName="id")
      */
     protected $curso;
 
+    /**
+     * @ORM\Column(type="date")
+     */
     protected $dt_inicio;
 
+    /**
+     * @ORM\Column(type="date")
+     */
     protected $dt_termino;
 
     /**

@@ -36,3 +36,16 @@ services:
 
     security.acl.permission.map:
       class: Sonata\AdminBundle\Security\Acl\Permission\AdminPermissionMap
+
+    app.admin.area_curso:
+      class: AppBundle\Admin\AreaCursoAdmin
+      arguments: [~, AppBundle\Entity\AreaCurso, SonataAdminBundle:CRUD]
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Área de Curso }
+      public: true
+    app.admin.curso:
+      class: AppBundle\Admin\CursoAdmin
+      arguments: [~, AppBundle\Entity\Curso, AppBundle:CursoAdmin]
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Curso }
+      public: true

@@ -49,6 +49,6 @@ class TipoCurso
 
     public function __toString(){
         // Or change the property that you want to show in the select.
-        return (string)$this->id;
+        return $this->nomeTipo;
     }
 }

@@ -42,7 +42,7 @@ class TipoCurso
         $this->nomeTipo = $nomeTipo;
     }
 
-    public function getCodigo()
+    public function getId()
     {
         return $this->id;
     }

@@ -42,7 +42,7 @@ class ModalidadeCurso
         $this->nomeModalidade = $nomeModalidade;
     }
 
-    public function getCodigo()
+    public function getId()
     {
         return $this->id;
     }

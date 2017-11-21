@@ -43,9 +43,24 @@ services:
       tags:
         - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Área de Curso }
       public: true
+
     app.admin.curso:
       class: AppBundle\Admin\CursoAdmin
       arguments: [~, AppBundle\Entity\Curso, AppBundle:CursoAdmin]
       tags:
-        - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Curso }
+        - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Cursos }
+      public: true
+
+    app.admin.docente:
+      class: AppBundle\Admin\DocenteAdmin
+      arguments: [~, AppBundle\Entity\Docente, SonataAdminBundle:CRUD]
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Docentes }
+      public: true
+
+    app.admin.coordenacao:
+      class: AppBundle\Admin\CoordenacaoAdmin
+      arguments: [~, AppBundle\Entity\Coordenacao, SonataAdminBundle:CRUD]
+      tags:
+        - { name: sonata.admin, manager_type: orm, group: Cadastros, label: Coordenações }
       public: true

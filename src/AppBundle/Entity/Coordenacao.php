@@ -27,7 +27,7 @@ class Coordenacao
     /**
      * Many Features have One Product.
      * @ORM\ManyToOne(targetEntity="Docente", inversedBy="coordenacoes")
-     * @ORM\JoinColumn(name="coordenador", referencedColumnName="matricula")
+     * @ORM\JoinColumn(name="coordenador", referencedColumnName="id")
      */
     protected $coordenador;
 

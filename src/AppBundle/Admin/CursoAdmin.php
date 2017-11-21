@@ -2,7 +2,6 @@
 
 namespace AppBundle\Admin;
 
-use AppBundle\Entity\Curso;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -55,6 +54,11 @@ class CursoAdmin extends AbstractAdmin
             ->add('areaCurso')
             ->add('modalidadeCurso')
             ->add('tipoCurso')
+            ->add('coordenadorAtual', 'sonata_type_model', array(
+                'class' => 'AppBundle\Entity\Docente',
+                'property' => 'matricula',
+                'label' => 'Coordenador',
+            ))
 
         ;
     }

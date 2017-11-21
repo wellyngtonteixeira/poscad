@@ -8,24 +8,20 @@
 
 namespace AppBundle\Entity;
 
+use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="docentes")
  */
-class Docente
+class Docente extends User
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Usuario")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
-     */
-    protected $usuario;
-    /**
      * @ORM\Column(type="integer")
-     * @ORM\Id
      */
     protected $matricula;
+
     /**
      * @ORM\OneToMany(targetEntity="Coordenacao", mappedBy="coordenador")
      */
@@ -41,13 +37,4 @@ class Docente
         $this->matricula = $matricula;
     }
 
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
-
-    public function setUsuario($usuario)
-    {
-        $this->usuario = $usuario;
-    }
 }

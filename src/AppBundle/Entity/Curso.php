@@ -43,6 +43,12 @@ class Curso
     protected $coordenacoes;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Docente")
+     * @ORM\JoinColumn(name="coordenador_atual", referencedColumnName="id")
+     */
+    protected $coordenadorAtual;
+
+    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     protected $isActive;
@@ -102,9 +108,19 @@ class Curso
         return $this->coordenacoes;
     }
 
-    public function setCoordenacoes($coordenador)
+    public function setCoordenacoes($coordenacoes)
     {
-        $this->coordCurso = $coordCurso;
+        $this->coordenacoes = $coordenacoes;
+    }
+
+    public function getCoordenadorAtual()
+    {
+        return $this->coordenadorAtual;
+    }
+
+    public function setCoordenadorAtual($coordenadorAtual)
+    {
+        $this->coordenadorAtual = $coordenadorAtual;
     }
 
     public function getModalidadeCurso()

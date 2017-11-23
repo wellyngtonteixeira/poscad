@@ -26,7 +26,8 @@ class DocenteAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('matricula')
+            ->add('matricula',null, array(
+                'row_align' => 'left'))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),

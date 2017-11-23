@@ -17,9 +17,15 @@ class CoordenacaoAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
+            ->add('curso.nomeCurso', null, array(
+                'label' => 'Curso'))
+            ->add('coordenador.matricula', null, array(
+                'label' => 'Coordenador'))
             ->add('atual')
-            ->add('dt_inicio')
-            ->add('dt_termino')
+            ->add('dt_inicio', null, array(
+                'label'=>'Data de Inicio'))
+            ->add('dt_termino', null, array(
+                'label'=>'Data de Término'))
         ;
     }
 
@@ -29,15 +35,24 @@ class CoordenacaoAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->add('id', null, array(
+                'row_align' => 'center'))
+            ->add('curso', null, array(
+                'associated_property' => 'nomeCurso', 'sortable'=> true,
+                'sort_field_mapping'=> array('fieldName'=>'nomeCurso'),
+                'sort_parent_association_mappings' => array(array('fieldName'=>'curso'))))
+            ->add('coordenador',null, array(
+                'associated_property' => 'matricula', 'sortable'=> true,
+                'sort_field_mapping'=> array('fieldName'=>'matricula'),
+                'sort_parent_association_mappings' => array(array('fieldName'=>'coordenador'))))
             ->add('atual')
-            ->add('dt_inicio')
-            ->add('dt_termino')
+            ->add('dt_inicio', null, array(
+                'label'=>'Data de Inicio'))
+            ->add('dt_termino', null, array(
+                'label'=>'Data de Término'))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
                 ),
             ))
         ;
@@ -50,6 +65,8 @@ class CoordenacaoAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('coordenador')
+            ->add('atual')
+            ->add('dt_termino')
         ;
     }
 
@@ -60,9 +77,15 @@ class CoordenacaoAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
+            ->add('curso',null, array(
+                'associated_property' => 'nomeCurso'))
+            ->add('coordenador',null, array(
+                'associated_property' => 'matricula'))
             ->add('atual')
-            ->add('dt_inicio')
-            ->add('dt_termino')
+            ->add('dt_inicio', null, array(
+                'label'=>'Data de Inicio'))
+            ->add('dt_termino', null, array(
+                'label'=>'Data de Término'))
         ;
     }
 }

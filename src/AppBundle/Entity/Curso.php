@@ -108,9 +108,9 @@ class Curso
         return $this->coordenacoes;
     }
 
-    public function setCoordenacoes($coordenacoes)
+    public function setCoordenacoes($coordx)
     {
-        $this->coordenacoes = $coordenacoes;
+        $this->coordenacoes[] = $coordx;
     }
 
     public function getCoordenadorAtual()

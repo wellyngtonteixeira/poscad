@@ -49,7 +49,7 @@ class Coordenacao
     protected $dt_inicio;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=TRUE)
      */
     protected $dt_termino;
 
@@ -149,7 +149,12 @@ class Coordenacao
         $this->dt_termino = $dt_termino;
     }
 
-
-
-
+    public function __construct()
+    {
+        //parent::__construct();
+        $this->atual = true;
+        $this->dt_inicio = new \DateTime();
+        // may not be needed, see section on salt below
+        // $this->salt = md5(uniqid('', true));
+    }
 }

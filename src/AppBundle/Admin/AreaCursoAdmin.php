@@ -17,7 +17,8 @@ class AreaCursoAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('nomeArea')
+            ->add('nomeArea', null, array(
+                'label'=>'Área'))
         ;
     }
 
@@ -28,7 +29,8 @@ class AreaCursoAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('nomeArea')
+            ->add('nomeArea', null, array(
+                'label'=>'Área do Conhecimento'))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -45,7 +47,8 @@ class AreaCursoAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nomeArea')
+            ->add('nomeArea', null, array(
+                'label'=>'Área'))
         ;
     }
 
@@ -56,7 +59,8 @@ class AreaCursoAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('nomeArea')
+            ->add('nomeArea', null, array(
+                'label'=>'Área do Conhecimento'))
         ;
     }
 }

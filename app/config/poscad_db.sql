@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Nov-2017 às 19:29
+-- Generation Time: 27-Nov-2017 às 18:54
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -40,7 +40,9 @@ CREATE TABLE `acl_classes` (
 INSERT INTO `acl_classes` (`id`, `class_type`) VALUES
 (1, 'AppBundle\\Entity\\AreaCurso'),
 (2, 'AppBundle\\Entity\\Curso'),
-(3, 'AppBundle\\Entity\\Docente');
+(3, 'AppBundle\\Entity\\Docente'),
+(5, 'Application\\Sonata\\UserBundle\\Entity\\Group'),
+(4, 'Application\\Sonata\\UserBundle\\Entity\\User');
 
 -- --------------------------------------------------------
 
@@ -77,17 +79,34 @@ INSERT INTO `acl_entries` (`id`, `class_id`, `object_identity_id`, `security_ide
 (8, 2, NULL, 7, NULL, 1, 32, 1, 'all', 0, 0),
 (9, 2, NULL, 8, NULL, 2, 4, 1, 'all', 0, 0),
 (10, 2, NULL, 9, NULL, 3, 1, 1, 'all', 0, 0),
-(11, 2, 3, 5, NULL, 0, 128, 1, 'all', 0, 0),
-(12, 2, 4, 5, NULL, 0, 128, 1, 'all', 0, 0),
-(13, 2, 5, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(12, 2, 4, 5, NULL, 1, 128, 1, 'all', 0, 0),
 (14, 2, 6, 5, NULL, 0, 128, 1, 'all', 0, 0),
 (15, 2, 7, 5, NULL, 0, 128, 1, 'all', 0, 0),
 (16, 3, NULL, 10, NULL, 0, 64, 1, 'all', 0, 0),
 (17, 3, NULL, 11, NULL, 1, 32, 1, 'all', 0, 0),
 (18, 3, NULL, 12, NULL, 2, 4, 1, 'all', 0, 0),
 (19, 3, NULL, 13, NULL, 3, 1, 1, 'all', 0, 0),
-(20, 3, 8, 5, NULL, 0, 128, 1, 'all', 0, 0),
-(21, 2, 9, 5, NULL, 0, 128, 1, 'all', 0, 0);
+(20, 3, 8, 5, NULL, 1, 128, 1, 'all', 0, 0),
+(22, 4, NULL, 14, NULL, 0, 64, 1, 'all', 0, 0),
+(23, 4, NULL, 15, NULL, 1, 32, 1, 'all', 0, 0),
+(24, 4, NULL, 16, NULL, 2, 4, 1, 'all', 0, 0),
+(25, 4, NULL, 17, NULL, 3, 1, 1, 'all', 0, 0),
+(26, 4, 10, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(27, 3, 11, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(28, 5, NULL, 18, NULL, 0, 64, 1, 'all', 0, 0),
+(29, 5, NULL, 19, NULL, 1, 32, 1, 'all', 0, 0),
+(30, 5, NULL, 20, NULL, 2, 4, 1, 'all', 0, 0),
+(31, 5, NULL, 21, NULL, 3, 1, 1, 'all', 0, 0),
+(32, 5, 12, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(33, 3, 13, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(34, 3, 14, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(36, 3, 8, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(37, 2, 15, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(39, 2, 4, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(40, 2, 16, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(41, 2, 17, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(42, 2, 18, 5, NULL, 0, 128, 1, 'all', 0, 0),
+(43, 2, 19, 5, NULL, 0, 128, 1, 'all', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -110,13 +129,20 @@ CREATE TABLE `acl_object_identities` (
 INSERT INTO `acl_object_identities` (`id`, `parent_object_identity_id`, `class_id`, `object_identifier`, `entries_inheriting`) VALUES
 (1, NULL, 1, '1', 1),
 (2, NULL, 1, '2', 1),
-(3, NULL, 2, '3', 1),
 (4, NULL, 2, '4', 1),
-(5, NULL, 2, '9', 1),
 (6, NULL, 2, '13', 1),
 (7, NULL, 2, '28', 1),
 (8, NULL, 3, '3', 1),
-(9, NULL, 2, '1', 1);
+(10, NULL, 4, '4', 1),
+(11, NULL, 3, '21', 1),
+(12, NULL, 5, '1', 1),
+(13, NULL, 3, '22', 1),
+(14, NULL, 3, '2', 1),
+(15, NULL, 2, '2', 1),
+(16, NULL, 2, '5', 1),
+(17, NULL, 2, '6', 1),
+(18, NULL, 2, '7', 1),
+(19, NULL, 2, '12', 1);
 
 -- --------------------------------------------------------
 
@@ -136,13 +162,20 @@ CREATE TABLE `acl_object_identity_ancestors` (
 INSERT INTO `acl_object_identity_ancestors` (`object_identity_id`, `ancestor_id`) VALUES
 (1, 1),
 (2, 2),
-(3, 3),
 (4, 4),
-(5, 5),
 (6, 6),
 (7, 7),
 (8, 8),
-(9, 9);
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17),
+(18, 18),
+(19, 19);
 
 -- --------------------------------------------------------
 
@@ -173,7 +206,15 @@ INSERT INTO `acl_security_identities` (`id`, `identifier`, `username`) VALUES
 (10, 'ROLE_APP_ADMIN_DOCENTE_ADMIN', 0),
 (11, 'ROLE_APP_ADMIN_DOCENTE_EDITOR', 0),
 (13, 'ROLE_APP_ADMIN_DOCENTE_GUEST', 0),
-(12, 'ROLE_APP_ADMIN_DOCENTE_STAFF', 0);
+(12, 'ROLE_APP_ADMIN_DOCENTE_STAFF', 0),
+(18, 'ROLE_SONATA_USER_ADMIN_GROUP_ADMIN', 0),
+(19, 'ROLE_SONATA_USER_ADMIN_GROUP_EDITOR', 0),
+(21, 'ROLE_SONATA_USER_ADMIN_GROUP_GUEST', 0),
+(20, 'ROLE_SONATA_USER_ADMIN_GROUP_STAFF', 0),
+(14, 'ROLE_SONATA_USER_ADMIN_USER_ADMIN', 0),
+(15, 'ROLE_SONATA_USER_ADMIN_USER_EDITOR', 0),
+(17, 'ROLE_SONATA_USER_ADMIN_USER_GUEST', 0),
+(16, 'ROLE_SONATA_USER_ADMIN_USER_STAFF', 0);
 
 -- --------------------------------------------------------
 
@@ -213,8 +254,23 @@ CREATE TABLE `coordenacoes` (
   `curso` int(11) DEFAULT NULL,
   `atual` tinyint(1) NOT NULL,
   `dt_inicio` date NOT NULL,
-  `dt_termino` date NOT NULL
+  `dt_termino` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `coordenacoes`
+--
+
+INSERT INTO `coordenacoes` (`id`, `coordenador`, `curso`, `atual`, `dt_inicio`, `dt_termino`) VALUES
+(8, 2, 5, 0, '2017-11-24', '2017-11-24'),
+(9, 2, 5, 0, '2017-11-24', '2017-11-27'),
+(10, 2, 6, 1, '2017-11-24', NULL),
+(11, 2, 5, 1, '2017-11-27', NULL),
+(12, 2, 7, 0, '2017-11-27', '2017-11-27'),
+(13, 3, 7, 0, '2017-11-27', '2017-11-27'),
+(14, 2, 7, 0, '2017-11-27', '2017-11-27'),
+(15, 3, 12, 0, '2017-11-27', '2017-11-27'),
+(16, 2, 12, 1, '2017-11-27', NULL);
 
 -- --------------------------------------------------------
 
@@ -238,7 +294,11 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `area_id`, `coordenador_atual`, `modalidade_id`, `tipo_id`, `nome_curso`, `codigo_curso`, `is_active`) VALUES
-(1, 2, 3, 'D', 'G', 'C1', 'DG21', 1);
+(5, 2, 3, 'P', 'P', 'C5', 'PP25', 1),
+(6, 1, 2, 'D', 'G', 'C6', 'DG16', 1),
+(7, 3, 3, 'P', 'P', 'C7', 'PP37', 1),
+(8, 1, 2, 'D', 'G', 'C8', 'DG18', 1),
+(12, 2, 2, 'D', 'G', 'C11', 'DG212', 1);
 
 -- --------------------------------------------------------
 
@@ -256,7 +316,8 @@ CREATE TABLE `docentes` (
 --
 
 INSERT INTO `docentes` (`id`, `matricula`) VALUES
-(3, 123456);
+(2, 1),
+(3, 2);
 
 -- --------------------------------------------------------
 
@@ -270,6 +331,13 @@ CREATE TABLE `grupos` (
   `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `grupos`
+--
+
+INSERT INTO `grupos` (`id`, `name`, `roles`) VALUES
+(1, 'Gerente de Curso', 'a:0:{}');
+
 -- --------------------------------------------------------
 
 --
@@ -280,6 +348,13 @@ CREATE TABLE `grupos_do_usuario` (
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `grupos_do_usuario`
+--
+
+INSERT INTO `grupos_do_usuario` (`user_id`, `group_id`) VALUES
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -368,8 +443,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`, `discr`) VALUES
-(2, 'root', 'root', 'root@domain.com', 'root@domain.com', 1, 'ihG57nRl6GiigHgaRtxgiM.3yBBJ0CRqwqoubsTzd9U', 'wu+g5k6lPm9ndS0nX3NOmq+F+Kof/cPKj9qveoEu8uz/DvVF1FkKBbCUyVn++HrozA4tLVNuS/TogJY7+4DQcA==', '2017-11-21 15:54:13', NULL, NULL, 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', '2017-11-20 21:53:44', '2017-11-21 15:57:14', NULL, NULL, NULL, NULL, NULL, 'm', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'usuario'),
-(3, 'teste', 'teste', 'fulano@uft.edu.br', 'fulano@uft.edu.br', 0, NULL, 'teste', NULL, NULL, NULL, 'a:0:{}', '2017-11-20 22:04:06', '2017-11-20 22:04:06', NULL, 'Teste', 'Fulano', NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'docente');
+(1, 'root', 'root', 'root@domain.com', 'root@domain.com', 1, 'KR28pZXs3i6eFiJeI8KeXpc2izDgd9gpn1AHnugdL.4', 'bqA1uCHvyD+0C37T72M05gk75sKC84qVhC6RhFKhoSpVRpTyI8x7SmOs+Ibrcw+Bb669ROMKeOY0LDUKrVPqGQ==', '2017-11-27 15:59:47', NULL, NULL, 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', '2017-11-24 15:53:03', '2017-11-27 15:59:47', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'usuario'),
+(2, '1', '1', 'fulano@domain.com', 'fulano@domain.com', 0, 'XYHmfs.a5xrjOjzhvOK7sk0BPxu0cdx1ZFFDM4dSRFI', 'GcpPcm7Rf1dD5eF31A4Y9Ghd0lL2gKz03i54JUuiYs8FJMH/PXvOMwlXrGRsYqUnB74AaGiZq7BaZdG/1woSnA==', NULL, NULL, NULL, 'a:0:{}', '2017-11-24 15:57:28', '2017-11-27 18:44:04', NULL, 'Fulano', 'Silva', NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'docente'),
+(3, '2', '2', 'ciclano@domain.com', 'ciclano@domain.com', 0, 'i8glhAh.1wSeE048k6O1EEt8b1S7NGRR759R.3qtfJ0', '0nvIqRC3JyucvyZ3wy8Qzsq7Ufio3YySRyv9xlUHHajtGYiV8Zdzco63PwcIRSa+XGjNrAVhSQm+UIhzmR5D3A==', NULL, NULL, NULL, 'a:0:{}', '2017-11-24 15:59:01', '2017-11-27 18:44:04', NULL, 'Ciclano', 'Silva', NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'docente');
 
 -- --------------------------------------------------------
 
@@ -486,6 +562,7 @@ ALTER TABLE `coordenacoes`
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `UNIQ_B2785A1899E811E1` (`codigo_curso`),
+  ADD UNIQUE KEY `area_id` (`area_id`,`modalidade_id`,`tipo_id`,`nome_curso`),
   ADD KEY `IDX_B2785A18BD0F409C` (`area_id`),
   ADD KEY `IDX_B2785A18A50C323B` (`coordenador_atual`),
   ADD KEY `IDX_B2785A18F2AD3298` (`modalidade_id`),
@@ -550,22 +627,22 @@ ALTER TABLE `usuarios_root`
 -- AUTO_INCREMENT for table `acl_classes`
 --
 ALTER TABLE `acl_classes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `acl_entries`
 --
 ALTER TABLE `acl_entries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `acl_object_identities`
 --
 ALTER TABLE `acl_object_identities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `acl_security_identities`
 --
 ALTER TABLE `acl_security_identities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `areas_curso`
 --
@@ -575,17 +652,17 @@ ALTER TABLE `areas_curso`
 -- AUTO_INCREMENT for table `coordenacoes`
 --
 ALTER TABLE `coordenacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --

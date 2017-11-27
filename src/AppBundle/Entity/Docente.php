@@ -35,6 +35,7 @@ class Docente extends User
     public function setMatricula($matricula)
     {
         $this->matricula = $matricula;
+        $this->setUsername($matricula);
     }
 
 }
